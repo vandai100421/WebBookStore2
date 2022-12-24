@@ -57,6 +57,11 @@ namespace WebBookStore.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Insert(NGUOIDUNG model)
         {
+            // cách 2 truyền qua tham số ( tham số trùng với thuộc tính name)
+            // cách 3 dùng model    https://itseovn.com/threads/truyen-va-lay-du-lieu-tu-view-sang-controller-trong-mvc-asp-net.214644/
+            // Cách 1  dùng đối tượng context ( Request )
+            
+            string hovaten = Request.Form["HoVaTen"];
             try
             {
                 db.NGUOIDUNGs.Add(model);
