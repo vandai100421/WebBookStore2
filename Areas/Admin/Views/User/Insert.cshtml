@@ -13,6 +13,23 @@
             <input class="form-control" value="@ViewBag.LastId" type="number" data-val="true" data-val-required="The Id field is required." id="Id" name="Id" disabled />
         </div>
     </div>
+    <div>
+        @Html.CheckBox("myCheckbox", false)
+        <input type="checkbox" name="myCheckbox" value="true" />
+        <input name="myCheckbox" value="false" />
+        <br />
+        @Html.RadioButton("myRadio", "valueA", false)
+        <br />
+        <input name="myRadio" checked="checked" id="myRadio" type="radio" value="valueA" />
+        <br />
+        <input name="myRadio" checked="checked" id="myRadio" type="radio" value="valueA" />
+        <br />
+
+        @Html.ActionLink("text", "Index", "Order")
+        <br />
+        @*Liên kết và truyền dữ liệu đến Action qua QueryString*@
+        @Html.ActionLink("Link to Edit User 3", "Edit", "User", new { id = 3 })  
+    </div>
 
     <div class="form-group">
         <label class="col-md-2 control-label" for="HoVaTen">Họ và tên</label>
