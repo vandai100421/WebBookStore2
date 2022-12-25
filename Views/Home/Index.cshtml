@@ -2,15 +2,16 @@
 @model IEnumerable<WebBookStore.Models.WebBookStore.DANHMUCSACH>
 
 @{ ViewBag.Title = "WebBookStore";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <!-- ========================================== SECTION – HERO ========================================= -->
-<div id="hero">
-    <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-        @foreach (SANPHAM pr in ViewBag.RandomProducts)
-        {
+@section SliderHome {
+    <div id="hero">
+        <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+            @foreach (SANPHAM pr in ViewBag.RandomProducts)
+            {
 
-            var name = pr.TenSanPham;
+                var name = pr.TenSanPham;
 
 <div class="item">
     <a href="~/Product/Detail/@pr.ID">
@@ -34,8 +35,9 @@
         </div><!-- /.caption -->
     </div><!-- /.container-fluid -->
 </div><!-- /.item -->}
-    </div><!-- /.owl-carousel -->
-</div>
+        </div><!-- /.owl-carousel -->
+    </div>
+}
 <!-- ========================================= SECTION – HERO : END ========================================= -->
 <!-- ============================================== INFO BOXES ============================================== -->
 <div class="info-boxes wow fadeInUp">
