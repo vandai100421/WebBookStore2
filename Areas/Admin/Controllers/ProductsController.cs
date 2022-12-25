@@ -82,7 +82,9 @@ namespace WebBookStore.Areas.Admin.Controllers
                     {
                         if (file.ContentLength > 0)
                         {
-                            var fileName = Path.GetFileName(file.FileName);
+                            var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                            var extension = Path.GetExtension(file.FileName);
+                            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                             var upload = Path.Combine(Server.MapPath("~/Assets/images"), fileName);
                             file.SaveAs(upload);
                         }
