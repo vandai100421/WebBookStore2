@@ -23,6 +23,7 @@
                     @{Html.RenderAction("FeedbackHome", "Home");}
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
+                    @RenderSection("SliderHome", required: false)
                     @RenderBody()
                 </div>
                 <input type="hidden" data-urlloadcart="@Url.RouteUrl(new { controller = "Cart", action = "PartialCart" })" id="url_loadcart" />
