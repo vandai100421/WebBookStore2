@@ -40,6 +40,8 @@ namespace WebBookStore.Areas.Admin.Controllers
         public ActionResult Details(int id)
         {
             var model = db.NGUOIDUNGs.SingleOrDefault(i => i.ID == id);
+            ViewBag.TrangThai = new List<string> { "0", "1" };
+            ViewBag.NhomND = db.NHOMNDs.ToList();
             return View("Details", model);
         }
 

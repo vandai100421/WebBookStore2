@@ -25,33 +25,32 @@
         <tbody>
             @foreach (NGUOIDUNG item in Model)
             {
-            <tr>
-                <td><input type="checkbox" name="ids" value="@item.ID" /></td>
-                <td>@item.ID</td>
-                <td>@item.HoVaTen</td>
-                <td>@item.Email</td>
-                <td>@item.DiaChi</td>
-                <td>@item.SDT</td>
-                @if (item.TrangThai == 1)
-                {
-                    <td>Kích hoạt</td>
-                }
-                @if (item.TrangThai == 0)
-                {
-                     <td>Khoá</td>
-                }
-                <td>@item.MaNhom</td>
-                <td>
-                    <button id="supplier-edit" onclick="form.action = '/Admin/User/Edit/@item.ID'" class="btn btn-warning btn-sm"><i class="fa fa-pencil icon-white"></i></button>
+                <tr>
+                    <td><input type="checkbox" name="ids" value="@item.ID" /></td>
+                    <td>@item.ID</td>
+                    <td>@item.HoVaTen</td>
+                    <td>@item.Email</td>
+                    <td>@item.DiaChi</td>
+                    <td>@item.SDT</td>
+                    @if (item.TrangThai == 1)
+                    {
+                        <td>Kích hoạt</td>
+                    }
+                    @if (item.TrangThai == 0)
+                    {
+                        <td>Khoá</td>
+                    }
+                    <td>@item.MaNhom</td>
+                    <td>
+                        <button id="supplier-edit" onclick="form.action = '/Admin/User/Edit/@item.ID'" class="btn btn-warning btn-sm"><i class="fa fa-pencil icon-white"></i></button>
 
-                    <button type="button" class="btn delete-asset btn-danger btn-sm" onclick="form.action = '/Admin/User/Delete/@item.ID'" data-toggle="modal" data-target="#confirmDelete" data-title="Xoá người dùng mã @item.ID" data-message="Bạn có muốn xoá người dùng mã @item.ID?">
-                        <i class="glyphicon glyphicon-trash"></i>
-                    </button>
+                        <button type="button" class="btn delete-asset btn-danger btn-sm" onclick="form.action = '/Admin/User/Delete/@item.ID'" data-toggle="modal" data-target="#confirmDelete" data-title="Xoá người dùng mã @item.ID" data-message="Bạn có muốn xoá người dùng mã @item.ID?">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </button>
 
-                    <button id="supplier-detail" onclick="form.action = '/Admin/User/Details/@item.ID'" class="btn btn-info btn-sm"><i class="fa fa-info"></i></button>
-
-                </td>
-            </tr>
+                        <button id="supplier-detail" onclick="form.action = '/Admin/User/Details/@item.ID'" class="btn btn-info btn-sm"><i class="fa fa-info"></i></button>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -78,5 +77,3 @@
         </div>
     </div>
 </div>
-
-
