@@ -20,6 +20,7 @@ namespace WebBookStore.Controllers
 
         public ActionResult Logout()
         {
+            Session[CommonConstants.CART_SESSION] = null;
             Session[CommonConstants.USER_SESSION] = null;
             return Redirect("/");
         }
