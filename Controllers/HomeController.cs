@@ -12,6 +12,11 @@ namespace WebBookStore.Controllers
     {
         WBSDbContext db;
 
+        public ActionResult Require1 ()
+        {
+            return View();
+        }
+
         public ActionResult CategoryHome()
         {
             db = new WBSDbContext();
@@ -52,13 +57,7 @@ namespace WebBookStore.Controllers
 
         public ActionResult Index()
         {
-            db = new WBSDbContext();
-            var model = db.DANHMUCSACHes.Include(u => u.SANPHAMs).ToList();
-
-            var randomProducts = (from p in db.SANPHAMs orderby Guid.NewGuid() select p).Take(5).ToList();
-            ViewBag.RandomProducts = randomProducts;
-
-            return View(model);
+            return View();
         }
         public ActionResult DanhSachSanPham()
         {
