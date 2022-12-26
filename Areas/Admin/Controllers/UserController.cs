@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBookStore.Common;
+using WebBookStore.Dao;
 using WebBookStore.Models.WebBookStore;
 
 namespace WebBookStore.Areas.Admin.Controllers
@@ -57,10 +58,32 @@ namespace WebBookStore.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Insert(NGUOIDUNG model)
         {
+            // cách 2 truyền qua tham số ( tham số trùng với thuộc tính name)
+            // cách 3 dùng model    https://itseovn.com/threads/truyen-va-lay-du-lieu-tu-view-sang-controller-trong-mvc-asp-net.214644/
+            // Cách 1  dùng đối tượng context ( Request )
+
+            string hovaten = Request.Form["HoVaTen"];
             try
             {
-                db.NGUOIDUNGs.Add(model);
-                db.SaveChanges();
+                var dao = new UserDao();
+                if (ModelState.IsValid)
+                {
+
+                    if (dao.CheckEmail(model.Email))
+                    {
+                        ModelState.AddModelError("", "Email đã tồn tại. Bạn hãy chọn một email khác");
+                        ViewBag.TrangThai = new List<string> { "0", "1" };
+                        ViewBag.NhomND = db.NHOMNDs.ToList();
+                        ViewBag.LastId = getLastProduct();
+                        return View(model);
+                    }
+                    else
+                    {
+                        model.MatKhau = Encryptor.MD5Hash("1");
+                        db.NGUOIDUNGs.Add(model);
+                        db.SaveChanges();
+                    }
+                }
                 return RedirectToAction("Index", "User", new { area = "Admin" });
             }
             catch

@@ -14,7 +14,7 @@ namespace WebBookStore.Controllers
 {
     public class CartController : BaseController
     {
-        private string CartSession = "ttt";
+        private string CartSession = CommonConstants.CART_SESSION;
         double tongca=0;
         int soluongca = 0;
         public ActionResult Index()
