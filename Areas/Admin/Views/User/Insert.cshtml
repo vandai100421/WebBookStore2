@@ -26,27 +26,27 @@
     </div>
     <div>
         <!--@Html.CheckBox("myCheckbox", false)
-        <input type="checkbox" name="myCheckbox" value="true" />
-        <input name="myCheckbox" value="false" />
-        <br />
-        @Html.RadioButton("myRadio", "valueA", false)
-        <br />
-        <input name="myRadio" checked="checked" id="myRadio" type="radio" value="valueA" />
-        <br />
-        <input name="myRadio" checked="checked" id="myRadio" type="radio" value="valueA" />
-        <br />
+    <input type="checkbox" name="myCheckbox" value="true" />
+    <input name="myCheckbox" value="false" />
+    <br />
+    @Html.RadioButton("myRadio", "valueA", false)
+    <br />
+    <input name="myRadio" checked="checked" id="myRadio" type="radio" value="valueA" />
+    <br />
+    <input name="myRadio" checked="checked" id="myRadio" type="radio" value="valueA" />
+    <br />
 
-        @Html.ActionLink("text", "Index", "Order")
-        <br />-->
+    @Html.ActionLink("text", "Index", "Order")
+    <br />-->
         @*Liên kết và truyền dữ liệu đến Action qua QueryString*@
         <!--@Html.ActionLink("Link to Edit User 3", "Edit", "User", new { id = 3 })
-        </div>-->
+    </div>-->
 
         <div class="form-group">
             <label class="col-md-2 control-label" for="HoVaTen">Họ và tên</label>
             <div class="col-md-8">
                 <input class="form-control" data-val="true" data-val-length="The field Name must be a string with a maximum length of 40."
-                       data-val-length-max="40" data-val-required="The Name field is required." id="HoVaTen" name="HoVaTen" type="text" value="" />
+                       data-val-length-max="40" data-val-required="The Name field is required." id="HoVaTen" name="HoVaTen" type="text" value="" required oninvalid="this.setCustomValidity('Không được để trống trường họ và tên')" oninput="this.setCustomValidity('')" />
             </div>
         </div>
 
@@ -54,7 +54,7 @@
             <label class="col-md-2 control-label" for="Email">Email</label>
             <div class="col-md-8">
                 <input class="form-control" data-val="true" data-val-length="The field Name must be a string with a maximum length of 40."
-                       data-val-length-max="40" data-val-required="The Name field is required." id="Email" name="Email" type="text" value="" />
+                       data-val-length-max="40" data-val-required="The Name field is required." id="Email" name="Email" type="text" value="" required oninvalid="this.setCustomValidity('Không được để trống trường Email')"  oninput="this.setCustomValidity('')"/>
             </div>
         </div>
 
@@ -111,8 +111,6 @@
             Thêm mới
             <i class="fa fa-check icon-white"></i>
         </button>
-        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Eumwqu3NKREk_prHUK1HpuHopk7liVmQvGx-vh5rUyNcQriwSgF2YGxzhMncl-oT03I55ZTT2Qr7g7Con-oFxBuVblelSPQb0DENJWt8fS3ZgP14nLopTLHXrs5_jxNjVQs0cRoIwsH1pBSykxYUQQtB1gACAHV4wXVtZZdF3bx5zEN2MahrLPJsLoojcSBQA" />
-        <input name="Available" type="hidden" value="false" />
-        <input name="Special" type="hidden" value="false" />
-        <input name="Latest" type="hidden" value="false" />
+        &emsp;
+        @Html.ActionLink("Hủy", "Index", "User")
 </form>
