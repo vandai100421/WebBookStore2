@@ -85,7 +85,7 @@ namespace WebBookStore.Controllers
                     ViewBag.Id = Id;
                     break;
                 case "Views":
-                    model = db.SANPHAMs.Include(u => u.LuotXem).Include(u => u.DANHMUCSACH).Take(12).ToList();
+                    model = db.SANPHAMs.Where(p => p.LuotXem > 30).OrderByDescending(p => p.LuotXem).ToList();
                     ViewBag.Id = Id;
                     break;
 
